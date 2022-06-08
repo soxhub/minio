@@ -21,7 +21,7 @@ jobs:
       run:
         shell: bash
     container:
-      image: docker
+      image: soxhub/docker-ci:latest
     runs-on: self-hosted
     environment: main
     steps:
@@ -33,4 +33,5 @@ jobs:
           echo "${{secrets.QUAY_TOKEN}}" | docker login --username "${{secrets.QUAY_USERNAME}}"  --password-stdin quay.io
           
       - name: Build minio
-        run: bash docker-buildx.sh
+        run: |
+          docker build -f Dockerfile.release --build-arg RELEASE=$(git describe --abbrev=0 --tags) .
