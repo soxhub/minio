@@ -21,7 +21,7 @@ jobs:
       run:
         shell: bash
     container:
-      image: soxhub/docker-ci:latest
+      image: docker
     runs-on: self-hosted
     environment: main
     steps:
