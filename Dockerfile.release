@@ -40,7 +40,6 @@ RUN \
      chmod +x /opt/bin/minio && \
      chmod +x /usr/bin/docker-entrypoint.sh && \
      chmod +x /usr/bin/verify-minio.sh && \
-     /usr/bin/verify-minio.sh && \
      microdnf clean all
 
 EXPOSE 9000
